@@ -35,6 +35,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('form-component', require('./components/FormComponent').default);
 Vue.component('items-component', require('./components/ItemsComponent').default);
 Vue.component('modal-component', require('./components/ModalComponent').default);
+Vue.component('table-component', require('./components/TableComponent').default);
+Vue.component('list-component', require('./components/ListComponent').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -58,8 +61,8 @@ const app = new Vue({
         //     });
     },
     methods: {
-        itemAdded(user){
-
+        copyText(item) {
+            navigator.clipboard.writeText(item);
         }
     },
     // data: {

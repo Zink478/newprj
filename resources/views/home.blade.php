@@ -13,9 +13,11 @@
                         </div>
                     @endif
                         <div id="app">
-
+                            <list-component ></list-component>
+                            <table-component ></table-component>
                             <items-component ></items-component>
                             <notifications class="topnotif" position="center" group="foo" />
+
                         </div>
 
                 </div>

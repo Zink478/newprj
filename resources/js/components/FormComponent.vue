@@ -74,7 +74,7 @@ export default {
                         title: 'Important message',
                         text: '<h4>New item added!</h4>'
                     });
-
+                    this.clear();
                     this.message();
                     this.name = this.price = '';
                     // this.addItem();
@@ -108,6 +108,10 @@ export default {
 
             // this.$refs.ItemsComponent.getItems();
 
+        },
+        clear()
+        {
+            this.item.price = this.item.name = '';
         },
         // addItem(){
         //     this.$emit("itemAdded", {

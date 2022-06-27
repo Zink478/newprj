@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use app\Events\ItemCreated;
 use App\Http\Requests\Post\ItemPostRequest;
+use App\Http\Resources\ItemCollection;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ItemController extends Controller
 {
@@ -25,7 +27,9 @@ class ItemController extends Controller
     public function index()
     {
         $items = Item::all();
-        return response()->json($items);
+//        $paginated = DB::table('items')->simplePaginate(3);
+//        dd($paginated->links());
+        return response(new ItemCollection($items));
     }
 
     /**
@@ -52,6 +56,7 @@ class ItemController extends Controller
 
     public function store(ItemPostRequest $request)
     {
+
 //        $user = Auth::user();
         $userid = auth()->user()->id;
         $validated = $request->validated();
@@ -96,6 +101,10 @@ class ItemController extends Controller
     {
         $validated = $request->validated();
         $item = Item::find($id);
+//        @TODO de scos comentariu
+//        if($item->user_id != auth()->user()->id) {
+//            return response()->json(['message' => 'This is not your item!'], 401);
+//        }
         $item->fill($request->post())->save();
         return response()->json(
             [
@@ -125,10 +134,16 @@ class ItemController extends Controller
     public function destroy($id)
     {
         $item = Item::find($id);
-        $item->delete();
-        return response()->json([
-            'message' => 'Item successfully deleted!'
-        ]);
+        if($item->user_id == auth()->user()->id) {
+            $item->delete();
+            return response()->json([
+                'message' => 'Item successfully deleted!'
+            ], 200);
+        }
+        else
+        {
+            return response()->json(['message' => 'This is not your item!'], 401);
+        }
     }
 
     public function userid()

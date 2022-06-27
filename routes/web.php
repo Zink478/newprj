@@ -25,3 +25,13 @@ Route::post('/items/{id}', [\App\Http\Controllers\ItemController::class, 'edit']
 Route::delete('/delete/{id}', [\App\Http\Controllers\ItemController::class, 'destroy'])->name('item.delete');
 Route::get('/getuserid', [\App\Http\Controllers\ItemController::class, 'userid'])->name('user.id');
 
+Route::group([
+    'prefix' => 'api/v1/'
+], function() {
+    Route::get('/items', [\App\Http\Controllers\api\v1\ItemController::class, 'index']);
+    Route::post('/items', [\App\Http\Controllers\api\v1\ItemController::class, 'store']);
+    Route::get('/items/{id}', [\App\Http\Controllers\api\v1\ItemController::class, 'show']);
+
+    Route::get('/price/{sum}', [\App\Http\Controllers\api\v1\ItemController::class, 'price']);
+    Route::get('/itemsLimited', [\App\Http\Controllers\api\v1\ItemController::class, 'indexLimited']);
+});

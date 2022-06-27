@@ -64,7 +64,15 @@ export default {
                         this.message();
                         // this.formEdit.name = this.formEdit.price = '';
                     })
-                    .catch((error) => console.log(error));
+                    .catch((error) => this.$notify({
+                        group: 'foo',
+                        title: 'Important message',
+                        text: error.response.data.message,
+                        type: 'warn',
+                        duration: 5000,
+
+                    }));
+                this.formEdit.name = this.formEdit.price = '';
                 // this.getItems();
             },
             //     test(item) {
