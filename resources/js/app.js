@@ -7,15 +7,19 @@ import Vue           from 'vue'
 import Notifications from 'vue-notification'
 import BootstrapVue from 'bootstrap-vue'
 import VModal from 'vue-js-modal/dist/index.nocss.js'
+import VueTour from 'vue-tour'
 import 'vue-js-modal/dist/styles.css'
 // import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 
+
+Vue.use(VueTour)
 Vue.use(BootstrapVue)
 Vue.use(VModal)
 Vue.use(Notifications);
 
+require('vue-tour/dist/vue-tour.css')
 require('./bootstrap');
 
 window.Vue = require('vue').default;
@@ -37,6 +41,7 @@ Vue.component('items-component', require('./components/ItemsComponent').default)
 Vue.component('modal-component', require('./components/ModalComponent').default);
 Vue.component('table-component', require('./components/TableComponent').default);
 Vue.component('list-component', require('./components/ListComponent').default);
+Vue.component('tour-component', require('./components/TourComponent').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

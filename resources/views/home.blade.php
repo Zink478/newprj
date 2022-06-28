@@ -13,6 +13,7 @@
                         </div>
                     @endif
                         <div id="app">
+                            <tour-component></tour-component>
                             <list-component ></list-component>
                             <table-component ></table-component>
                             <items-component ></items-component>

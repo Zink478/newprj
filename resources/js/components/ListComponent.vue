@@ -19,6 +19,7 @@
         </div>
         <h1>Items on user_id: 2</h1>
         <div class='drop-zone'
+             id="stepTwo"
              @drop="onDrop($event, 2)"
              @dragover.prevent
              @dragenter.prevent
