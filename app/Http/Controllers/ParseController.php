@@ -53,6 +53,13 @@ class ParseController extends Controller
     {
         $posts = Post::all();
 //        dd($posts[0]->path);
+        return view('posts');
+    }
+
+    public function get()
+    {
+        $posts = Post::all();
+//        dd($posts[0]->path);
         return response()->json($posts);
     }
 }

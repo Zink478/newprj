@@ -1,16 +1,21 @@
 <template>
     <div>
-        <div v-for="post in posts" :key="post.id">
-            <h1>{{post.id}}</h1>
-            <h2>{{post.title}}</h2>
-
+        <div class="row">
+            <div v-for="post in posts" :key="post.id">
+                <div class="col">
+                    <post-component :message="post"></post-component>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
-export default{
-    data(){
+import PostComponent from "./PostComponent";
+
+export default {
+    components: PostComponent,
+    data() {
         return {
             posts: {},
 
@@ -19,13 +24,13 @@ export default{
 
     methods: {
         getPosts() {
-            axios.get('/posts')
+            axios.get('/posts/get')
                 .then((response) => {
                     this.posts = response.data;
                 });
         },
     },
-    computed: {
+    mounted() {
         this.getPosts();
     }
 }
