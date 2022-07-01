@@ -21,7 +21,6 @@
                             <notifications class="topnotif" position="center" group="foo" />
 
 {{--                        </div>--}}
-
 {{--                </div>--}}
 {{--            </div>--}}
         </div>
