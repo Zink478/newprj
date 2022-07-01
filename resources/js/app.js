@@ -103,3 +103,11 @@ const app = new Vue({
         // }
     // }
 });
+
+const app1 = new Vue({
+    el: '#app1',
+    data: {
+
+    },
+
+});
