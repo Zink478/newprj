@@ -8,7 +8,9 @@
 </template>
 
 <script>
+
 // feature is a comment
+
 export default{
     data(){
       return {
