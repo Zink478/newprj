@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::get('/parse', [\App\Http\Controllers\ParseController::class, 'index']);
+Route::get('/posts', [\App\Http\Controllers\ParseController::class, 'show']);
+Route::get('/posts/get', [\App\Http\Controllers\ParseController::class, 'get']);
+
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/allitems', [\App\Http\Controllers\ItemController::class, 'index'])->name('items.show');
 //Route::get('/items', [\App\Http\Controllers\ItemController::class, 'fetch'])->name('item.fetch');

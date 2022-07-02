@@ -42,6 +42,8 @@ Vue.component('modal-component', require('./components/ModalComponent').default)
 Vue.component('table-component', require('./components/TableComponent').default);
 Vue.component('list-component', require('./components/ListComponent').default);
 Vue.component('tour-component', require('./components/TourComponent').default);
+Vue.component('posts-component', require('./components/PostsComponent').default);
+Vue.component('post-component', require('./components/PostComponent').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -102,4 +104,12 @@ const app = new Vue({
         //         });
         // }
     // }
+});
+
+const app1 = new Vue({
+    el: '#app1',
+    data: {
+
+    },
+
 });
